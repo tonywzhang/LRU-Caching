@@ -23,16 +23,19 @@ class HashMap
       bucket(key).append(key, val)
       @count += 1
     end
+
   end
 
   def get(key)
     bucket(key).get(key)
+
   end
 
   def delete(key)
     removal = bucket(key).remove(key)
     @count -= 1 if removal
     removal
+
   end
 
   def each
@@ -70,5 +73,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
+    @store[key.hash % num_buckets]
   end
 end
