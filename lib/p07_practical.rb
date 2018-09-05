@@ -6,5 +6,12 @@ def can_string_be_palindrome?(string)
     letter_hash[letter] += 1
   end
 
-  !(letter_hash.values.count(1) > 1)
+  !(letter_hash.values.count{|v| v%2==1} > 1)
+
+
+  # string.split("").each do |letter|
+  #   letter_hash[letter] += 1
+  # end
+  #
+  # !(letter_hash.values.count(1) > 1)
 end
